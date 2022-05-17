@@ -50,13 +50,13 @@ public class EmployeesServiceImpl implements EmployeesService{
         if (!employees.getDepartment().isEmpty()){
             employeeToUpdate.setDepartment(employees.getDepartment());
         }
-        if(!employees.getEmail().isEmpty()){
+        if(employees.getEmail() != null){
             employeeToUpdate.setEmail(employees.getEmail());
         }
-        if (!employees.getFirstName().isEmpty()){
+        if (employees.getFirstName() != null){
             employeeToUpdate.setFirstName(employees.getFirstName());
         }
-        if (!employees.getLastName().isEmpty()){
+        if (employees.getLastName() != null){
             employeeToUpdate.setLastName(employees.getLastName());
         }
         if (employees.getHireDate() != null){

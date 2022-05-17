@@ -2,6 +2,7 @@ package com.example.Employees.controller;
 
 import com.example.Employees.entity.Employees;
 import com.example.Employees.error.EmployeesNotFoundException;
+import com.example.Employees.service.EmailSenderService;
 import com.example.Employees.service.EmployeesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,10 +22,13 @@ public class EmployeesController {
 
     @Autowired
     private EmployeesService employeesService;
+    @Autowired
+    EmailSenderService senderService;
 
     @PostMapping("/add")
     public Employees addEmployees (@Valid @RequestBody Employees employees){
         LOGGER.info("Inside of addEmployees of Employees Controller");
+        senderService.sendEmail("yosephfl@gmail.com","Test Mail", "It was a success!");
         return employeesService.addEmployees(employees);
     }
 
